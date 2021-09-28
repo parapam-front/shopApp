@@ -1,0 +1,40 @@
+.header {
+  width: 100vw;
+  height: 94px;
+  background: $price-color-blue;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 130px);
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  &__cart-container {
+    position: relative;
+    background: transparent;
+    transition: .3s;
+  }
+
+  &__cart-container:hover {
+    transform: scale(1.1);
+  }
+
+  &__cart-length {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #EB5757;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 26px;
+    bottom: 27px;
+    color: $cart-color-white;
+  }
+}

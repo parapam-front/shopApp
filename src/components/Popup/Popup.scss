@@ -1,0 +1,104 @@
+.mask {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.popup {
+  width: 436px;
+  position: absolute;
+  right: 36px;
+  background: $cart-color-white;
+  border-radius: 6px;
+  padding: 30px 20px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000000;
+    margin: 0 0 60px;
+  }
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0 30px 0 0;
+  }
+
+  &__clear {
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: "cera regular", Arial, serif;
+  }
+
+  &__close-button {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__close-span {
+    width: 22px;
+    height: 1px;
+    background: $main-color-black;
+    transform: rotate(45deg);
+    position: absolute;
+  }
+
+  &__close-span_perpendicular {
+    transform: rotate(-45deg);
+  }
+
+  &__products-container {
+    max-height: 60vh;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 0 0;
+  }
+
+  &__sum-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    width: 314px;
+    height: 50px;
+    background: $price-color-blue;
+    color: $button-color-white;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "cera bold" Arial, serif;
+  }
+
+  &__sum-products {
+    font-size: 12px;
+    line-height: 120%;
+  }
+
+  &__sum-price {
+    margin: 8px 0 0;
+    font-size: 18px;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+}

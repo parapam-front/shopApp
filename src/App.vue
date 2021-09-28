@@ -1,32 +1,58 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Header
+      :cart="CART"
+    />
+    <main class="wrapper">
+      <h1 class="title">Слуховые аппараты</h1>
+      <section class="catalog">
+        <CatalogItem
+          v-for="item in PRODUCTS"
+          :key="item.id"
+          :product="item"
+          :cart="CART"
+        />
+      </section>
+      <button class="show-more__button">показать ещё</button>
+    </main>
+    <Popup
+      :cart="CART"
+      :popupShow="POPUPSHOW"
+    />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import CatalogItem from './components/CatalogItem/CatalogItem.vue';
+  import Header from './components/Header/Header.vue';
+  import Popup from './components/Popup/Popup.vue'
+  import {mapActions, mapGetters} from 'vuex';
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  export default {
+    components: {
+      CatalogItem,
+      Header,
+      Popup
+    },
+    data() {
+      return {
+        lol: this.$store.getters.PRODUCTS
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'PRODUCTS',
+        'CART',
+        'POPUPSHOW'
+      ])
+    },
+    methods: {
+      ...mapActions([
+        'GET_PRODUCTS_FROM_API'
+      ])
+    },
+    mounted() {
+      this.GET_PRODUCTS_FROM_API()
     }
   }
-}
-</style>
+</script>
